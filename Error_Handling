@@ -1,0 +1,18 @@
+<?php
+// Error Handling
+
+function ageCalculate($age) {
+    if ($age < 18) {
+        throw new Exception("First you need to turn 18"); // Fixed missing semicolon
+    }
+    return true;
+}
+
+try {
+    ageCalculate(23); // This will not throw an exception because age is 23
+    echo "You are a voter.";
+} catch (Exception $exp) {
+    // Catch and display the exception message
+    echo $exp->getMessage();
+}
+?>
