@@ -1,0 +1,42 @@
+<?php
+// Set the file name
+$filename = "example.txt";
+
+try {
+    // 1. Create or Open a File for Writing
+    $file = fopen($filename, "w"); // "w" mode opens file for writing and creates it if it doesn't exist
+    if (!$file) {
+        throw new Exception("Unable to open or create the file.");
+    }
+
+    // 2. Write to the File
+    $content = "Hello, this is a file handling example in PHP.\n";
+    fwrite($file, $content);
+    fwrite($file, "File handling is easy and powerful!\n");
+    fclose($file); // Always close the file after writing
+
+    echo "File created and content written successfully.<br>";
+
+    // 3. Read from the File
+    $file = fopen($filename, "r"); // "r" mode opens the file for reading
+    if (!$file) {
+        throw new Exception("Unable to open the file for reading.");
+    }
+
+    echo "File Content:<br>";
+    while (!feof($file)) { // Loop until the end of the file
+        echo fgets($file) . "<br>"; // Read and display each line
+    }
+    fclose($file); // Close the file after reading
+
+    // 4. Delete the File
+    if (unlink($filename)) {
+        echo "File deleted successfully.";
+    } else {
+        throw new Exception("Unable to delete the file.");
+    }
+} catch (Exception $e) {
+    // Handle any exceptions
+    echo "Error: " . $e->getMessage();
+}
+?>
