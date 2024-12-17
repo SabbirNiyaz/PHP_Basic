@@ -1,0 +1,47 @@
+
+<?php
+/* Super Global variable */
+$x = 60;
+$y = 5;
+
+function info(){
+    $GLOBALS['z']= $GLOBALS['x'] + $GLOBALS['y'];
+}
+info();
+echo $z ."<br>";
+
+?>
+
+<?php
+echo $_SERVER['PHP_SELF']."<br>";
+echo $_SERVER['SERVER_NAME']."<br>";
+echo $_SERVER['SERVER_ADDR']."<br>";
+echo $_SERVER['SERVER_SOFTWARE']."<br>";
+echo $_SERVER['HTTP_HOST']."<br>";
+echo $_SERVER['SCRIPT_NAME']."<br>";
+?>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Safely handle and display the POST data
+    $name = htmlspecialchars($_POST['name']);
+    echo "Hello, " . $name;
+}
+?>
+
+<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+    <label for="name">Enter your name:</label>
+    <input type="text" id="name" name="name"> <br>
+    <input type="submit" value="Submit"> <br>
+</form>
+
+
+<?php
+// Display the values passed via the URL
+if (isset($_GET['channel']) && isset($_GET['course'])) {
+    echo "Channel: " . htmlspecialchars($_GET['channel']) . "<br>";
+    echo "Course: " . htmlspecialchars($_GET['course']) . "<br>";
+}
+?>
+
+<a href="Superglobals.php?channel=Tech&course=PHP">Click here</a>
