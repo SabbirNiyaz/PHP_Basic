@@ -1,0 +1,22 @@
+<?php
+// Constant 
+class Wordpress1{
+    const PLUGINS_DIR = 'plugins';
+    }
+echo Wordpress1::PLUGINS_DIR;
+echo '<br>';
+echo '<br>';
+
+?>
+
+<?php 
+class WordPress{
+    const PLUGINS_DIR = 'wp-content/plugins';
+
+    function getPluginsDir(){
+        return self::PLUGINS_DIR;
+    }
+}
+$dev = new WordPress();
+echo $dev->getPluginsDir();
+?>
