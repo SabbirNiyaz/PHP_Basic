@@ -1,0 +1,48 @@
+<?php
+class student {
+    private $name;
+    private $id;
+    private $dept;
+
+    function __construct($name, $id, $dept) {
+        $this->name = $name;
+        $this->id = $id;
+        $this->dept = $dept;
+    }
+
+    function show() {
+        echo "Name: " . $this->name . "<br>";
+        echo "ID: " . $this->id . "<br>";
+        echo "Department: " . $this->dept . "<br>";
+    }
+}
+
+class person extends student {
+    private $hobbie;
+    private $dream;
+
+    function __construct($name, $id, $dept, $hobbie, $dream) {
+        parent::__construct($name, $id, $dept);
+        $this->hobbie = $hobbie;
+        $this->dream = $dream;
+    }
+
+    function show() {
+        parent::show();
+        echo "Hobbie: " . $this->hobbie . "<br>";
+        echo "Dream: " . $this->dream . "<br>" . "<br>";
+    }
+
+    function showAll() {
+        $this->show();
+    }
+}
+
+$p1 = new person("Sabbir", "22-47538-2", "CSE", "Football", "Software Engineer");
+echo $p1->showAll();
+$p2 = new person("Hossain", "22-47538-2", "CSE", " Video Games", "QA Engineer");
+echo $p1->showAll();
+$p3 = new person("Niyaz", "22-47538-2", "CSE", "FIFA", "CSE Engineer");
+echo $p1->showAll();
+
+?>
