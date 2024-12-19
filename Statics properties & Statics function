@@ -1,0 +1,28 @@
+<?php
+//Statics properties
+
+class mPhone{
+    static public $name = "iphone";
+}
+echo product::$name . "<br>";
+
+?>
+
+
+<?php
+//Statics function
+class product{
+    public static $name = "Mobile";
+    public static $price = 10000;
+
+    public static function show(){
+        echo self::$name;
+        echo self::$price;
+    }
+}
+
+$p1 = new product();
+echo product::$name;
+echo product::$price;
+?>
+
