@@ -1,0 +1,19 @@
+<?php
+// Interface
+interface ICar {
+    public function model();
+    public function price();
+}
+class Car implements ICar {
+    public function model() {
+        echo "Car Model: BMW";
+    }
+    public function price() {
+        echo "Car Price: 50,000";
+    }
+}
+$car1 = array("model" => "BMW", "price" => "50,000");
+foreach($car1 as $key => $value) {
+    echo $key . " : " . $value . "<br>";
+}
+?>
