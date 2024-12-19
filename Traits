@@ -1,0 +1,23 @@
+<?php
+//Traits describe a group of methods that can be used in multiple classes. Traits are declared with the trait keyword.
+trait Hello{
+    public function sayHello(){
+        echo "Hello ";
+    }
+}
+trait World{
+    public function sayWorld(){
+        echo "World";
+    }
+}
+class MyHelloWorld{
+    use Hello, World;
+    public function sayExclamationMark(){
+        echo "!";
+    }
+}
+$h1 = new MyHelloWorld();
+echo $h1->sayHello();
+echo $h1->sayWorld();
+echo $h1->sayExclamationMark();
+?>
